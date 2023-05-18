@@ -18,7 +18,6 @@
   transition: opacity 0.5s;
 }
 .element__like-button:active {
-  background-image: url(../../../images/image__like_black_button.png);
+  background-image: url(../../../images/image__black_like_button.svg);
   background-color: #000;
-  border: none;
 }

@@ -7,7 +7,25 @@
   row-gap: 16px;
   margin-right: 244px;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 1024px) {
+  .profile__info {
+    max-width: 100%;
+    grid-template-columns: 294px 24px;
+    column-gap: 10px;
+    row-gap: 14px;
+    margin: 0px 245px 0px 0px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .profile__info {
+    max-width: 100%;
+    grid-template-columns: 230px 24px;
+    column-gap: 10px;
+    row-gap: 14px;
+    margin: 0px 120px 0px 0px;
+  }
+}
+@media screen and (max-width: 426px) {
   .profile__info {
     max-width: 282px;
     grid-template-columns: 189px 18px;

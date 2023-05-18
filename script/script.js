@@ -15,23 +15,16 @@ closePopupButton.addEventListener('click', function () {
   closePopup(editPopup);
 });
 
-nameInput.value = profileName.textContent;
-
 editForm.addEventListener('submit', function (event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
-  closePopup(editPopup);
-});
-
-detailsInput.value = profileDetails.textContent;
-
-editForm.addEventListener('submit', function (event) {
-  event.preventDefault();
   profileDetails.textContent = detailsInput.value;
   closePopup(editPopup);
 });
 
 function openPopup(popup) {
+  nameInput.value = profileName.textContent;
+  detailsInput.value = profileDetails.textContent;
   popup.classList.add('popup_opened');
 }
 function closePopup(popup) {

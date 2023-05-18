@@ -2,17 +2,23 @@
   display: flex;
   max-width: 318px;
   margin: 0px auto 60px 200px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #545454;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 1024px) {
+  .footer {
+    margin: 0px;
+    padding: 0px 0px 60px 63.6px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    margin: 0px;
+    padding: 0px 0px 60px 0px;
+  }
+}
+@media screen and (max-width: 426px) {
   .footer {
     max-width: 282px;
-    font-size: 14px;
-    line-height: 17px;
     margin: 0px auto 36px;
+    padding: 0;
   }
 }
