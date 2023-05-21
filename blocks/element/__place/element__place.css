@@ -5,3 +5,13 @@
   width: 246px;
   margin: 25px auto 31px;
 }
+@media screen and (max-width: 743px) {
+  .element__place {
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 426px) {
+  .element__place {
+    max-width: 246px;
+  }
+}

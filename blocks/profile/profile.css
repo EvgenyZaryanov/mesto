@@ -10,15 +10,21 @@
   .profile {
     max-width: 100%;
     padding: 0px 65px 50px;
-    /* justify-content: start; */
-    align-items: center;
     justify-content: center;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 743px) {
+  .profile {
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 600px) {
   .profile {
     max-width: 100%;
-    padding: 0px 0px 50px;
+    flex-direction: column;
+    max-width: 282px;
+    padding: 0px 19px 36px;
+    margin: 0 auto;
   }
 }
 @media screen and (max-width: 426px) {

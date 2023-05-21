@@ -5,8 +5,8 @@
   background: #ffffff;
   border-radius: 10px;
 }
-@media screen and (max-width: 426px) {
+/* @media screen and (max-width: 368px) {
   .element {
-    max-width: 100%;
+    max-width: 95%;
   }
-}
+} */

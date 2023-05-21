@@ -4,11 +4,18 @@
   max-width: 880px;
   margin: 45px 200px 40px;
   gap: 41px;
-  border-bottom: 1px solid #545454;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 @media screen and (max-width: 1279px) {
   .header {
     width: 100%;
+    margin: 28px auto 42px;
+  }
+}
+@media screen and (max-width: 917px) {
+  .header {
+    max-width: 600px;
+    justify-self: center;
     margin: 28px auto 42px;
   }
 }
