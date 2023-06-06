@@ -42,59 +42,70 @@
           </div>
           <p class="profile__details">Исследователь океана</p>
         </div>
-        <button type="button" class="profile__add-button"></button>
+        <button
+          aria-label="Open"
+          type="button"
+          id="open-second-popup-button"
+          class="profile__add-button"
+        ></button>
       </section>
       <section class="elements">
-        <article class="element">
-          <img class="element__image" src="./images/karachaevsk__image.jpg" alt="Карачаевск" />
-          <div class="element__place">
-            <h3 class="element__place-name">Карачаевск</h3>
-            <button type="button" class="element__like-button"></button>
+        <div id="add-popup" class="popup popupAdd">
+          <div class="popup__container">
+            <form name="new-card" id="add-form" class="popup__form">
+              <h2 class="popup__title">Новое место</h2>
+              <input
+                name="item-name"
+                id="item-name-input"
+                type="text"
+                class="popup__input"
+                placeholder="Название"
+              />
+              <input
+                name="item-link"
+                id="item-link-input"
+                type="text"
+                class="popup__input"
+                placeholder="Ссылка на картинку"
+              />
+              <button type="submit" class="popup__submit-button">Создать</button>
+            </form>
+            <button
+              aria-label="Close"
+              type="button"
+              id="close-second-popup-button"
+              class="popup__close-button"
+            ></button>
           </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/elbrus__image.jpg" alt="Гора Эльбрус" />
-          <div class="element__place">
-            <h3 class="element__place-name">Гора Эльбрус</h3>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/dombai__image.jpg" alt="Домбай" />
-          <div class="element__place">
-            <h3 class="element__place-name">Домбай</h3>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/elbrus__image.jpg" alt="Гора Эльбрус" />
-          <div class="element__place">
-            <h3 class="element__place-name">Гора Эльбрус</h3>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/dombai__image.jpg" alt="Домбай" />
-          <div class="element__place">
-            <h3 class="element__place-name">Домбай</h3>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/karachaevsk__image.jpg"
-            alt="Карачаево-Черкесия"
-          />
-          <div class="element__place">
-            <h3 class="element__place-name">Карачаево-Черкессия</h3>
-            <button type="button" class="element__like-button"></button>
-          </div>
-        </article>
+        </div>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__text">© 2023 Mesto Russia</p>
     </footer>
+    <template id="element-template">
+      <article class="element">
+        <img class="element__image" src="" alt="" />
+        <button class="element__delete-button"></button>
+        <div class="element__place">
+          <h3 class="element__place-name"></h3>
+          <button type="button" class="element__like-button"></button>
+        </div>
+      </article>
+    </template>
+    <div class="popupImage">
+      <div class="popupImage__container">
+        <form name="zoom-image" id="zoom-form" class="popup__form">
+          <button
+            aria-label="Close"
+            type="button"
+            id="close-third-popup-button"
+            class="popup__close-button"
+          ></button>
+          <img class="popupImage__picture" src="" alt="" />
+          <figcaption class="popupImage__title"></figcaption>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
