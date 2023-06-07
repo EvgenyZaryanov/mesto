@@ -50,9 +50,9 @@
         ></button>
       </section>
       <section class="elements">
-        <div id="add-popup" class="popup popupAdd">
+        <div id="add-popup" class="popup">
           <div class="popup__container">
-            <form name="new-card" id="add-form" class="popup__form">
+            <form name="new-card" id="add-form" required class="popup__form">
               <h2 class="popup__title">Новое место</h2>
               <input
                 name="item-name"
@@ -64,7 +64,7 @@
               <input
                 name="item-link"
                 id="item-link-input"
-                type="text"
+                type="url"
                 class="popup__input"
                 placeholder="Ссылка на картинку"
               />
@@ -93,18 +93,16 @@
         </div>
       </article>
     </template>
-    <div class="popupImage">
-      <div class="popupImage__container">
-        <form name="zoom-image" class="popupImage__form">
-          <button
-            aria-label="Close"
-            type="button"
-            id="close-third-popup-button"
-            class="popupImage__close-button"
-          ></button>
-          <img class="popupImage__picture" src="#" alt="#" />
-          <figcaption class="popupImage__title"></figcaption>
-        </form>
+    <div id="popupImage" class="popup">
+      <div class="popup__container popup__container_zoom">
+        <button
+          aria-label="Close"
+          type="button"
+          id="close-third-popup-button"
+          class="popup__close-button"
+        ></button>
+        <img class="popup__picture" src="#" alt="#" />
+        <figcaption class="popup__picTitle"></figcaption>
       </div>
     </div>
   </body>

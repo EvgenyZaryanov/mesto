@@ -22,10 +22,10 @@ const templateContent = template.content;
 const cardElement = templateContent.querySelector('.element');
 const cardElements = document.querySelector('.elements');
 //---------------------------------------------//
-const zoomPopupImage = document.querySelector('.popupImage');
+const zoomPopupImage = document.querySelector('#popupImage');
 const closeThirdPopupButton = document.querySelector('#close-third-popup-button');
-const popupImagePic = document.querySelector('.popupImage__picture');
-const popupImagePicTitle = document.querySelector('.popupImage__title');
+const popupImagePic = document.querySelector('.popup__picture');
+const popupImagePicTitle = document.querySelector('.popup__picTitle');
 
 openPopupButton.addEventListener('click', function () {
   openPopup(editPopup);
