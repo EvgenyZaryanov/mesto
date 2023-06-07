@@ -92,19 +92,19 @@ const initialElements = [
 ];
 
 initialElements.forEach(function (item) {
-  const newElement = createElement(item.link, item.name);
+  const newElement = createElement(item.name, item.link);
   cardElements.prepend(newElement);
 });
 
-function createElement(link, name) {
+function createElement(name, link) {
   const newElement = cardElement.cloneNode(true);
+
+  const cardName = newElement.querySelector('.element__place-name');
+  cardName.textContent = name;
 
   const cardImage = newElement.querySelector('.element__image');
   cardImage.src = link;
   cardImage.alt = name;
-
-  const cardName = newElement.querySelector('.element__place-name');
-  cardName.textContent = name;
 
   const cardDelete = newElement.querySelector('.element__delete-button');
   cardDelete.addEventListener('click', function (event) {
@@ -140,9 +140,10 @@ formAdd.addEventListener('submit', function (event) {
   const formData = new FormData(form);
   const values = Object.fromEntries(formData);
 
-  const item = values[('item-name', 'item-link')];
+  const name = values['item-name'];
+  const link = values['item-link'];
 
-  const newElement = createElement(item);
+  const newElement = createElement(name, link);
   cardElements.prepend(newElement);
 
   form.reset();
