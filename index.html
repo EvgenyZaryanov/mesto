@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mesto Russia</title>
     <link rel="stylesheet" type="text/css" href="./pages/index.css" />
-    <script src="./script/script.js" defer></script>
+    <script src="./script/cards.js" defer></script>
+    <script src="./script/index.js" defer></script>
     <link rel="shortcut icon" href="./images/site-icon.png" type="image/x-icon" />
   </head>
   <body class="page">
@@ -18,54 +19,50 @@
         <img class="profile__avatar" src="./images/avatar__image.jpg" alt="аватар" />
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button
-            aria-label="Open"
-            type="button"
-            id="open-popup-button"
-            class="profile__edit-button"
-          ></button>
-          <div id="edit-popup" class="popup">
+          <button aria-label="Open" type="button" class="profile__edit-button"></button>
+          <div id="profilePopup" class="popup">
             <div class="popup__container">
-              <form name="profile-info" id="edit-form" class="popup__form">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input name="profile-name" id="name-input" type="text" class="popup__input" />
-                <input name="profile-details" id="details-input" type="text" class="popup__input" />
+              <form name="add-form" id="profile-form" class="popup__form">
+                <h2 class="popup__details">Редактировать профиль</h2>
+                <input name="profileName" id="profileName-input" type="text" class="popup__input" />
+                <input
+                  name="profileDetails"
+                  id="profileDetails-input"
+                  type="text"
+                  class="popup__input"
+                />
                 <button type="submit" class="popup__submit-button">Сохранить</button>
               </form>
               <button
                 aria-label="Close"
                 type="button"
-                id="close-popup-button"
-                class="popup__close-button"
+                class="popup__close-button popup__close-button_profile"
               ></button>
             </div>
           </div>
           <p class="profile__details">Исследователь океана</p>
         </div>
-        <button
-          aria-label="Open"
-          type="button"
-          id="open-second-popup-button"
-          class="profile__add-button"
-        ></button>
+        <button aria-label="Open" type="button" class="profile__add-button"></button>
       </section>
       <section class="elements">
-        <div id="add-popup" class="popup">
+        <div id="addNewCardPopup" class="popup">
           <div class="popup__container">
-            <form name="new-card" id="add-form" required class="popup__form">
+            <form name="new-card" id="addNewCard-form" class="popup__form">
               <h2 class="popup__title">Новое место</h2>
               <input
                 name="item-name"
-                id="item-name-input"
+                id="newCardName-input"
                 type="text"
                 class="popup__input"
+                required
                 placeholder="Название"
               />
               <input
                 name="item-link"
-                id="item-link-input"
+                id="newCardLink-input"
                 type="url"
                 class="popup__input"
+                required
                 placeholder="Ссылка на картинку"
               />
               <button type="submit" class="popup__submit-button">Создать</button>
@@ -73,8 +70,7 @@
             <button
               aria-label="Close"
               type="button"
-              id="close-second-popup-button"
-              class="popup__close-button"
+              class="popup__close-button popup__close-button_addNewCard"
             ></button>
           </div>
         </div>
@@ -93,16 +89,15 @@
         </div>
       </article>
     </template>
-    <div id="popupImage" class="popup">
+    <div id="fullImagePopup" class="popup">
       <div class="popup__container popup__container_zoom">
         <button
           aria-label="Close"
           type="button"
-          id="close-third-popup-button"
-          class="popup__close-button"
+          class="popup__close-button popup__close-button_fullImage"
         ></button>
-        <img class="popup__picture" src="#" alt="#" />
-        <figcaption class="popup__picTitle"></figcaption>
+        <img class="popup__fullImage" src="#" alt="#" />
+        <figcaption class="popup__fullImageTitle"></figcaption>
       </div>
     </div>
   </body>
