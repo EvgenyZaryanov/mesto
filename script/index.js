@@ -9,7 +9,7 @@ const formProfile = document.querySelector('#profile-form');
 //-------------------------------------------//
 const buttonOpenPopupAddNewCard = document.querySelector('.profile__add-button');
 const buttonClosePopupAddNewCard = document.querySelector('.popup__close-button_addNewCard');
-const PopupAddNewCard = document.querySelector('#addNewCardPopup');
+const popupAddNewCard = document.querySelector('#addNewCardPopup');
 const inputNameFormAddNewCard = document.querySelector('#newCardName-input');
 const inputLinkFormAddNewCard = document.querySelector('#newCardLink-input');
 const formAddNewCard = document.querySelector('#addNewCard-form');
@@ -40,26 +40,33 @@ formProfile.addEventListener('submit', function (event) {
   closePopup(popupProfile);
 });
 
-function openPopup(popupProfile) {
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+function openPopupProfile() {
   inputNameFormProfile.value = profileName.textContent;
   inputDetailsFormProfile.value = profileDetails.textContent;
-  popupProfile.classList.add('popup_opened');
+  openPopup(popupProfile);
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
 buttonOpenPopupAddNewCard.addEventListener('click', function () {
-  openPopup(PopupAddNewCard);
+  openPopup(popupAddNewCard);
 });
 
 buttonClosePopupAddNewCard.addEventListener('click', function () {
-  closePopup(PopupAddNewCard);
+  closePopup(popupAddNewCard);
 });
 
 formAddNewCard.addEventListener('submit', function (event) {
   event.preventDefault();
-  closePopup(PopupAddNewCard);
+  closePopup(popupAddNewCard);
+});
+
+buttonClosePopupFullImage.addEventListener('click', function () {
+  closePopup(popupFullImage);
 });
 
 initialElements.forEach(function (item) {
@@ -75,6 +82,7 @@ function createElement(name, link) {
 
   const cardImage = newElement.querySelector('.element__image');
   cardImage.src = link;
+  cardImage.title = name;
   cardImage.alt = name;
 
   const cardDescription = newElement.querySelector('.element__image');
@@ -96,10 +104,8 @@ function createElement(name, link) {
     openPopup(popupFullImage);
     fullImageItem.src = link;
     fullImageItem.alt = name;
+    fullImageItem.title = name;
     fullImageTitle.textContent = name;
-  });
-  buttonClosePopupFullImage.addEventListener('click', function () {
-    closePopup(popupFullImage);
   });
 
   //--------------------------------------------------------//
