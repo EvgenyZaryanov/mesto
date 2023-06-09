@@ -24,6 +24,12 @@ const buttonClosePopupFullImage = document.querySelector('.popup__close-button_f
 const fullImageItem = document.querySelector('.popup__fullImage');
 const fullImageTitle = document.querySelector('.popup__fullImageTitle');
 
+function openPopupProfile() {
+  inputNameFormProfile.value = profileName.textContent;
+  inputDetailsFormProfile.value = profileDetails.textContent;
+  openPopup(popupProfile);
+}
+
 buttonOpenPopupProfile.addEventListener('click', openPopupProfile);
 
 buttonClosePopupProfile.addEventListener('click', function () {
@@ -40,11 +46,7 @@ formProfile.addEventListener('submit', function (event) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
-function openPopupProfile() {
-  inputNameFormProfile.value = profileName.textContent;
-  inputDetailsFormProfile.value = profileDetails.textContent;
-  openPopup(popupProfile);
-}
+
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
