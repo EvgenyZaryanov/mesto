@@ -25,9 +25,7 @@ const buttonClosePopupFullImage = document.querySelector('.popup__close-button_f
 const fullImageItem = document.querySelector('.popup__fullImage');
 const fullImageTitle = document.querySelector('.popup__fullImageTitle');
 
-buttonOpenPopupProfile.addEventListener('click', function () {
-  openPopup(popupProfile);
-});
+buttonOpenPopupProfile.addEventListener('click', openPopupProfile);
 
 buttonClosePopupProfile.addEventListener('click', function () {
   closePopup(popupProfile);
