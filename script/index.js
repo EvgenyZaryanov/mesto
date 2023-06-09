@@ -14,7 +14,6 @@ const inputNameFormAddNewCard = document.querySelector('#newCardName-input');
 const inputLinkFormAddNewCard = document.querySelector('#newCardLink-input');
 const formAddNewCard = document.querySelector('#addNewCard-form');
 //-------------------------------------------------//
-/** @type {HTMLTemplateElement} */
 const template = document.querySelector('#element-template');
 const templateContent = template.content;
 const cardElement = templateContent.querySelector('.element');
