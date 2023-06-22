@@ -43,12 +43,31 @@ formProfile.addEventListener('submit', function (event) {
   closePopup(popupProfile);
 });
 
+const keyOfEsc = 27;
+function handleEscKey(evt) {
+  const popup = document.querySelector('.popup_opened');
+  if (evt.keyCode === keyOfEsc) {
+    closePopup(popup);
+  }
+}
+
+function handleOverlayClick(evt) {
+  const popup = document.querySelector('.popup_opened');
+  if (evt.target === popup) {
+    closePopup(popup);
+  }
+}
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscKey);
+  document.addEventListener('mousedown', handleOverlayClick);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscKey);
+  document.removeEventListener('mousedown', handleOverlayClick);
 }
 
 buttonOpenPopupAddNewCard.addEventListener('click', function () {
