@@ -46,13 +46,13 @@ function hasInvalidInput(inputs) {
 
 // Включение и выключение кнопки отправки формы
 
-function toggleButtonState(inputs, submitButtonElement, inactiveButtonClass) {
+function toggleButtonState(inputs, submitButtonSelector, inactiveButtonClass) {
   if (hasInvalidInput(inputs)) {
-    submitButtonElement.classList.add(inactiveButtonClass);
-    submitButtonElement.disabled = true;
+    submitButtonSelector.classList.add(inactiveButtonClass);
+    submitButtonSelector.disabled = true;
   } else {
-    submitButtonElement.classList.remove(inactiveButtonClass);
-    submitButtonElement.disabled = false;
+    submitButtonSelector.classList.remove(inactiveButtonClass);
+    submitButtonSelector.disabled = false;
   }
 }
 

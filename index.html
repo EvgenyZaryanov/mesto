@@ -15,96 +15,95 @@
     <header class="header">
       <img class="header__logo" src="./images/logo__image.svg" alt="логотип Mesto Russia" />
     </header>
-    <main>
+    <main class="main">
       <section class="profile">
         <img class="profile__avatar" src="./images/avatar__image.jpg" alt="аватар" />
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button aria-label="Open" type="button" class="profile__edit-button"></button>
-          <div id="profilePopup" class="popup">
-            <div class="popup__container">
-              <form name="add-form" id="profile-form" class="popup__form" novalidate>
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <input
-                  name="profileName"
-                  id="profileName-input"
-                  type="text"
-                  class="popup__input"
-                  minlength="2"
-                  maxlength="40"
-                  required
-                />
-                <p class="popup__span-paragraph">
-                  <span class="popup__input-error profileName-input-error"></span>
-                </p>
-                <input
-                  name="profileDetails"
-                  id="profileDetails-input"
-                  type="text"
-                  class="popup__input"
-                  minlength="2"
-                  maxlength="200"
-                  required
-                />
-                <p class="popup__span-paragraph">
-                  <span class="popup__input-error profileDetails-input-error"></span>
-                </p>
-                <button type="submit" class="popup__submit-button">Сохранить</button>
-              </form>
-              <button
-                aria-label="Close"
-                type="button"
-                class="popup__close-button popup__close-button_profile"
-              ></button>
-            </div>
-          </div>
           <p class="profile__details">Исследователь океана</p>
         </div>
         <button aria-label="Open" type="button" class="profile__add-button"></button>
       </section>
-      <section class="elements">
-        <div id="addNewCardPopup" class="popup">
-          <div class="popup__container">
-            <form name="new-card" id="addNewCard-form" class="popup__form" novalidate>
-              <h2 class="popup__title">Новое место</h2>
-              <input
-                name="item-name"
-                id="newCardName-input"
-                type="text"
-                class="popup__input"
-                minlength="2"
-                maxlength="30"
-                required
-                placeholder="Название"
-              />
-              <p class="popup__span-paragraph">
-                <span class="popup__input-error newCard-input-error"></span>
-              </p>
-              <input
-                name="item-link"
-                id="newCardLink-input"
-                type="url"
-                class="popup__input"
-                placeholder="Ссылка на картинку"
-                required
-              />
-              <p class="popup__span-paragraph">
-                <span class="popup__input-error newCardLink-input-error"></span>
-              </p>
-              <button type="submit" class="popup__submit-button">Создать</button>
-            </form>
-            <button
-              aria-label="Close"
-              type="button"
-              class="popup__close-button popup__close-button_addNewCard"
-            ></button>
-          </div>
-        </div>
-      </section>
+      <section class="elements"></section>
     </main>
     <footer class="footer">
       <p class="footer__text">© 2023 Mesto Russia</p>
     </footer>
+    <div id="profilePopup" class="popup">
+      <div class="popup__container">
+        <form name="add-form" id="profile-form" class="popup__form" novalidate>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input
+            name="profileName"
+            id="profileName-input"
+            type="text"
+            class="popup__input"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <p class="popup__span-paragraph">
+            <span class="popup__input-error profileName-input-error"></span>
+          </p>
+          <input
+            name="profileDetails"
+            id="profileDetails-input"
+            type="text"
+            class="popup__input"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <p class="popup__span-paragraph">
+            <span class="popup__input-error profileDetails-input-error"></span>
+          </p>
+          <button type="submit" class="popup__submit-button">Сохранить</button>
+        </form>
+        <button
+          aria-label="Close"
+          type="button"
+          class="popup__close-button popup__close-button_profile"
+        ></button>
+      </div>
+    </div>
+    <div id="addNewCardPopup" class="popup">
+      <div class="popup__container">
+        <form name="new-card" id="addNewCard-form" class="popup__form" novalidate>
+          <h2 class="popup__title">Новое место</h2>
+          <input
+            name="item-name"
+            id="newCardName-input"
+            type="text"
+            class="popup__input"
+            minlength="2"
+            maxlength="30"
+            required
+            placeholder="Название"
+          />
+          <p class="popup__span-paragraph">
+            <span class="popup__input-error newCard-input-error"></span>
+          </p>
+          <input
+            name="item-link"
+            id="newCardLink-input"
+            type="url"
+            class="popup__input"
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <p class="popup__span-paragraph">
+            <span class="popup__input-error newCardLink-input-error"></span>
+          </p>
+          <button type="submit" class="popup__submit-button" disabled>Создать</button>
+        </form>
+        <button
+          aria-label="Close"
+          type="button"
+          class="popup__close-button popup__close-button_addNewCard"
+        ></button>
+      </div>
+    </div>
     <template id="element-template">
       <article class="element">
         <img class="element__image" src="#" title="" alt="#" />
@@ -115,7 +114,7 @@
         </div>
       </article>
     </template>
-    <div id="fullImagePopup" class="popup">
+    <div id="fullImagePopup" class="popup popup__overlay">
       <div class="popup__container popup__container_zoom">
         <button
           aria-label="Close"
