@@ -73,20 +73,13 @@ function closePopup(popup) {
 }
 
 function disableSubmitButton() {
-  const inputs = formAddNewCard.querySelectorAll('.popup__input');
   const submitButton = formAddNewCard.querySelector('.popup__submit-button');
-
-  inputs.forEach(input => {
-    input.addEventListener('input', function () {
-      const isFormValid = formAddNewCard.checkValidity();
-      submitButton.disabled = !isFormValid;
-    });
-  });
+  submitButton.setAttribute('disabled', 'true');
+  submitButton.classList.add('popup__submit-button_disabled');
 }
 
 buttonOpenPopupAddNewCard.addEventListener('click', function () {
   openPopup(popupAddNewCard);
-  disableSubmitButton();
 });
 
 buttonClosePopupAddNewCard.addEventListener('click', function () {
@@ -107,6 +100,8 @@ formAddNewCard.addEventListener('submit', function (event) {
   cardElements.prepend(newElement);
 
   closePopup(popupAddNewCard);
+
+  disableSubmitButton();
 
   form.reset();
 });
