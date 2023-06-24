@@ -17,6 +17,9 @@
   opacity: 0.8;
   transition: opacity 0.5s;
 }
+/* .popup__submit-button:disabled {
+  cursor: default;
+} */
 @media screen and (max-width: 426px) {
   .popup__submit-button {
     width: 238px;
