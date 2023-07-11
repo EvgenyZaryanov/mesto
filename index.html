@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mesto Russia</title>
     <link rel="stylesheet" type="text/css" href="./pages/index.css" />
-    <script src="./script/cards.js" defer></script>
-    <script src="./script/index.js" defer></script>
-    <script src="./script/validate.js" defer></script>
+    <script type="module" src="./script/index.js"></script>
     <link rel="shortcut icon" href="./images/site-icon.png" type="image/x-icon" />
   </head>
   <body class="page">
@@ -25,11 +23,15 @@
         </div>
         <button aria-label="Open" type="button" class="profile__add-button"></button>
       </section>
+
       <section class="elements"></section>
+      <!--вставляем сюда шаблон-->
     </main>
+
     <footer class="footer">
       <p class="footer__text">© 2023 Mesto Russia</p>
     </footer>
+
     <div id="profilePopup" class="popup">
       <div class="popup__container">
         <form name="add-form" id="profile-form" class="popup__form" novalidate>
@@ -67,6 +69,7 @@
         ></button>
       </div>
     </div>
+
     <div id="addNewCardPopup" class="popup">
       <div class="popup__container">
         <form name="new-card" id="addNewCard-form" class="popup__form" novalidate>
@@ -106,7 +109,8 @@
         ></button>
       </div>
     </div>
-    <template id="element-template">
+
+    <template id="element-template" class="template">
       <article class="element">
         <img class="element__image" src="#" title="" alt="#" />
         <button class="element__delete-button"></button>
@@ -116,6 +120,7 @@
         </div>
       </article>
     </template>
+
     <div id="fullImagePopup" class="popup popup_overlay">
       <div class="popup__container popup__container_zoom">
         <button
