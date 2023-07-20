@@ -55,8 +55,13 @@ export class Card {
   }
 }
 
-items.forEach(item => {
+function createCard(item) {
   const card = new Card(item, '.template', handleClickCard);
   const cardElement = card.generateCard();
+  return cardElement;
+}
+
+items.forEach(item => {
+  const cardElement = createCard(item);
   cardElements.prepend(cardElement);
 });

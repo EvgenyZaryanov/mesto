@@ -24,16 +24,16 @@ import {
   keyOfEsc,
   popupFullImage,
   popupFullImageItem,
-  popupFullImageTitle
+  popupFullImageTitle,
+  cardElements
 } from './constants.js';
 
-function openPopupProfile() {
+buttonOpenPopupProfile.addEventListener('click', function () {
+  openPopup(popupProfile);
+  formProfileValid.disableSubmitButton();
   inputNameFormProfile.value = profileName.textContent;
   inputDetailsFormProfile.value = profileDetails.textContent;
-  openPopup(popupProfile);
-}
-
-buttonOpenPopupProfile.addEventListener('click', openPopupProfile);
+});
 
 closeButtons.forEach(button => {
   const popup = button.closest('.popup');
@@ -73,18 +73,14 @@ function closePopup(popup) {
   document.removeEventListener('mousedown', handleOverlayClick);
 }
 
-function disableSubmitButton() {
-  const popupSubmitButton = formAddNewCard.querySelector('.popup__submit-button');
-  popupSubmitButton.setAttribute('disabled', 'true');
-  popupSubmitButton.classList.add('popup__submit-button_disabled');
-}
-
 buttonOpenPopupAddNewCard.addEventListener('click', function () {
   openPopup(popupAddNewCard);
+  formAddNewCardValid.disableSubmitButton();
 });
 
 export function handleClickCard(name, link) {
   popupFullImageItem.src = link;
+  popupFullImageItem.alt = name;
   popupFullImageTitle.textContent = name;
   openPopup(popupFullImage);
 }
@@ -98,14 +94,16 @@ formAddNewCard.addEventListener('submit', function (event) {
     link: linkInputFormAddNewCard.value
   };
 
-  const card = new Card(item, '.template');
-  const cardElement = card.generateCard();
+  function createCard(item) {
+    const card = new Card(item, '.template', handleClickCard);
+    const cardElement = card.generateCard();
+    return cardElement;
+  }
 
-  document.querySelector('.elements').prepend(cardElement);
+  const cardElement = createCard(item);
+  cardElements.prepend(cardElement);
 
   closePopup(popupAddNewCard);
-
-  disableSubmitButton();
 
   event.target.reset(form);
 
