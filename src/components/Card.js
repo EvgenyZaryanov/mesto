@@ -1,4 +1,4 @@
-import { items, cardElements } from '../utils/constants.js';
+import { cardItems, cardElements } from '../utils/constants.js';
 import { handleClickCard } from '../pages/index.js';
 
 export class Card {
@@ -40,10 +40,10 @@ export class Card {
       this._handleClickCard(this._name, this._link);
     });
     this._cardLikeIcon.addEventListener('click', () => {
-      this._handleLikeIcon(this._element);
+      this._handleLikeIcon();
     });
     this._cardDeleteButton.addEventListener('click', () => {
-      this._handleDeleteCard(this._element);
+      this._handleDeleteCard();
     });
   }
 
@@ -61,7 +61,7 @@ function createCard(item) {
   return cardElement;
 }
 
-items.forEach(item => {
+cardItems.forEach(item => {
   const cardElement = createCard(item);
   cardElements.prepend(cardElement);
 });

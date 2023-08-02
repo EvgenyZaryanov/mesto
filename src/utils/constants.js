@@ -1,6 +1,5 @@
 //---------------------ОБЩИЕ-------------------//
 export const closeButtons = document.querySelectorAll('.popup__close-button');
-export const keyOfEsc = 27;
 //-----------------------------ПОПАП ПРОФИЛЬ-----------------------------------------------------//
 export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
 export const popupProfile = document.querySelector('#profilePopup');
@@ -22,6 +21,7 @@ export const buttonSubmitAddNewCard = document.querySelector('#submit-button');
 export const template = document.querySelector('#element-template');
 export const templateContent = template.content;
 export const cardElement = templateContent.querySelector('.element');
+export const cardElements = document.querySelector('.elements');
 export const cardImageTitle = cardElement.querySelector('.element__place-name');
 export const cardImage = cardElement.querySelector('.element__image');
 export const cardDeleteButton = cardElement.querySelector('.element__delete-button');
@@ -31,14 +31,9 @@ export const popupFullImageItem = document.querySelector('.popup__fullImage');
 export const popupFullImageTitle = document.querySelector('.popup__fullImageTitle');
 export const popupOverlayElement = document.querySelector('.popup_overlay');
 
-export const popupElement = document.querySelector('#fullImagePopup');
-export const popupImage = document.querySelector('.popup__fullImage');
-export const popupImageTitle = document.querySelector('.popup__fullImageTitle');
-export const cardElements = document.querySelector('.elements');
-
 //---------ПОПАП КАРТИНКИ В ПОЛНОМ РАЗМЕРЕ (в классе Card)--------------------------//
 
-export const items = [
+export const cardItems = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -64,3 +59,13 @@ export const items = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+//------переменные для валидации----------//
+export const formSelectors = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_disabled',
+  inputErrorClass: '.popup__input-error',
+  errorClass: '.popup__input-error'
+};

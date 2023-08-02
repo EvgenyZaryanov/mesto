@@ -1,11 +1,14 @@
 .profile__avatar {
   width: 120px;
   height: 120px;
-  object-fit: cover;
   border-radius: 50%;
+  background-image: url(../../../images/avatar__image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: default;
   flex-shrink: 0;
-  padding: 0px;
   margin: 0px 30px 0px 0px;
+  z-index: 2;
 }
 @media screen and (max-width: 917px) {
   .profile__avatar {
