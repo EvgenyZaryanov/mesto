@@ -12,16 +12,7 @@ export class UserInfo {
   }
 
   setUserInfo(data) {
-    this._userName.textContent = data.name ? data.name:"";
-    this._userInfo.textContent = data.info ? data.info:"";
+    this._userName.textContent = data.name;
+    this._userInfo.textContent = data.info;
   }
-
-  // setUserInfo(name, info) {
-  //   if (name) {
-  //     this._userName.textContent = name;
-  //   }
-  //   if (info) {
-  //     this._userData.textContent = info;
-  //   }
-  // }
 }

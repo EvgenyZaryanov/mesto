@@ -33,11 +33,6 @@ function createCard(item) {
   return cardElement;
 }
 
-cardItems.forEach(item => {
-  const cardElement = createCard(item);
-  cardElements.prepend(cardElement);
-});
-
 const popupWithImage = new PopupWithImage('#fullImagePopup');
 popupWithImage.setEventListeners();
 
@@ -54,23 +49,24 @@ buttonOpenPopupProfile.addEventListener('click', () => {
 });
 
 const popupEditProfile = new PopupWithForm('.popup-edit', data => {
-  userInfo.setUserInfo(data);
+  userInfo.setUserInfo({
+    name: data['profileName'],
+    info: data['profileDetails']
+});
+  // userInfo.setUserInfo(data);
   popupEditProfile.close();
 });
 popupEditProfile.setEventListeners();
 
-//не понимаю почему исчезают строки в профиле после нажатия на кнопку сохранить.
-
 buttonOpenPopupAddNewCard.addEventListener('click', () => {
   popupAddCard.open();
-  formAddNewCardValid.enableValidation();
   formAddNewCardValid.disableSubmitButton();
 });
 
 const popupAddCard = new PopupWithForm('.popup-add', data => {
   const card = {
-    name: data.name,
-    link: data.link
+    name: data['item-name'],
+    link: data['item-link']
   };
   elementList.addItem(createCard(card));
   popupAddCard.close();
@@ -82,7 +78,7 @@ const elementList = new Section(
     items: cardItems,
     renderer: items => elementList.addItem(createCard(items))
   },
-  '.elements'
+  cardElements
 );
 elementList.renderItems();
 
