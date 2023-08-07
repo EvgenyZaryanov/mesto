@@ -16,9 +16,7 @@ import {
   formAddNewCard,
   buttonOpenPopupProfile,
   buttonOpenPopupAddNewCard,
-  popupAddNewCard,
-  cardElements,
-  template
+  cardElements
 } from '../utils/constants.js';
 //---------------------------------------//
 
@@ -29,63 +27,65 @@ const formAddNewCardValid = new FormValidator(formSelectors, formAddNewCard);
 formAddNewCardValid.enableValidation();
 formAddNewCardValid.disableSubmitButton();
 
-const userInfo = new UserInfo({
-  nameSelector: '.profile__name',
-  infoSelector: '.profile__details'
+function createCard(item) {
+  const card = new Card(item, '.template', handleClickCard);
+  const cardElement = card.generateCard();
+  return cardElement;
+}
+
+cardItems.forEach(item => {
+  const cardElement = createCard(item);
+  cardElements.prepend(cardElement);
 });
 
 const popupWithImage = new PopupWithImage('#fullImagePopup');
 popupWithImage.setEventListeners();
 
-buttonOpenPopupProfile.addEventListener('click', () => {
-  inputNameFormProfile.value = userInfo.getUserInfo().name;
-  inputDetailsFormProfile.value = userInfo.getUserInfo().about;
-  popupEditProfile.open();
+const userInfo = new UserInfo({
+  nameSelector: '.profile__name',
+  infoSelector: '.profile__details'
 });
 
-const popupEditProfile = new PopupWithForm('#profilePopup', data => {
+buttonOpenPopupProfile.addEventListener('click', () => {
+  popupEditProfile.open();
+  const userDetails = userInfo.getUserInfo();
+  inputNameFormProfile.value = userDetails.name;
+  inputDetailsFormProfile.value = userDetails.info;
+});
+
+const popupEditProfile = new PopupWithForm('.popup-edit', data => {
   userInfo.setUserInfo(data);
   popupEditProfile.close();
 });
-
 popupEditProfile.setEventListeners();
 
+//не понимаю почему исчезают строки в профиле после нажатия на кнопку сохранить.
+
 buttonOpenPopupAddNewCard.addEventListener('click', () => {
-  PopupAddCard.open();
+  popupAddCard.open();
+  formAddNewCardValid.enableValidation();
   formAddNewCardValid.disableSubmitButton();
 });
 
-const PopupAddCard = new PopupWithForm('#addNewCardPopup', data => {
+const popupAddCard = new PopupWithForm('.popup-add', data => {
   const card = {
     name: data.name,
     link: data.link
   };
-  section.addItem(createNewCard(card));
-  PopupAddCard.close();
+  elementList.addItem(createCard(card));
+  popupAddCard.close();
 });
+popupAddCard.setEventListeners();
 
-PopupAddCard.setEventListeners();
-
-const section = new Section(
+const elementList = new Section(
   {
     items: cardItems,
-    renderer: renderCard
+    renderer: items => elementList.addItem(createCard(items))
   },
-  cardElements
+  '.elements'
 );
-section.renderItems();
+elementList.renderItems();
 
-function createNewCard({ name, link }) {
-  const card = new Card({ name, link }, template, handleClickCard);
-  const cardElement = card.createCard();
-  return cardElement;
-}
-
-export function handleClickCard(name, link) {
+function handleClickCard(name, link) {
   popupWithImage.open(name, link);
-}
-
-function renderCard(cardData) {
-  const newCard = createNewCard(cardData);
-  section.addItem(newCard);
 }
