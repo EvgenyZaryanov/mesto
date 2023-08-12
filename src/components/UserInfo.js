@@ -1,18 +1,27 @@
 export class UserInfo {
-  constructor({ nameSelector, infoSelector }) {
-    this._userName = document.querySelector(nameSelector);
-    this._userInfo = document.querySelector(infoSelector);
+  constructor(profileNameSelector, profileStatusSelector, profileAvatar) {
+    this._profileName = document.querySelector(profileNameSelector);
+    this._profileStatus = document.querySelector(profileStatusSelector);
+    this._profileAvatar = document.querySelector(profileAvatar);
+    this._profileId = '';
   }
 
   getUserInfo() {
     return {
-      name: this._userName.textContent,
-      info: this._userInfo.textContent
+      name: this._profileName.textContent,
+      about: this._profileStatus.textContent,
+      avatar: this._profileAvatar.src,
+      id: this._profileId
     };
   }
 
-  setUserInfo(data) {
-    this._userName.textContent = data.name;
-    this._userInfo.textContent = data.info;
+  setUserInfo(name, about, id) {
+    this._profileName.textContent = name;
+    this._profileStatus.textContent = about;
+    this._profileId = id;
+  }
+
+  setUserAvatar(avatar) {
+    this._profileAvatar.style.backgroundImage = `url('${avatar}')`;
   }
 }

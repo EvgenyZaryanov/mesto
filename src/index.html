@@ -12,7 +12,7 @@
     </header>
     <main class="main">
       <section class="profile">
-        <a href="#" aria-label="Аватар" class="profile__avatar"></a>
+        <a href="#" aria-label="Аватар" id="profile__avatar-button" class="profile__avatar"></a>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button aria-label="Открыть" type="button" class="profile__edit-button"></button>
@@ -20,21 +20,20 @@
         </div>
         <button aria-label="Открыть" type="button" class="profile__add-button"></button>
       </section>
-
       <section class="elements"></section>
-      <!--вставляем сюда шаблон-->
     </main>
-
     <footer class="footer">
       <p class="footer__text">© 2023 Mesto Russia</p>
+      <p class="footer__text">by Evgeny Zaryanov</p>
     </footer>
-
+    <!-----------------------ПОПАП РЕДАКТИРОВАНИЯ ПРОФИЛЯ--------------------------->
     <div id="profilePopup" class="popup popup-edit">
       <div class="popup__container">
-        <form name="add-form" id="profile-form" class="popup__form" novalidate>
+        <form name="add-form" id="profile-form" class="popup__form popup__form-profile" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
           <input
             name="profileName"
+            placeholder="Имя"
             id="profileName-input"
             type="text"
             class="popup__input"
@@ -47,6 +46,7 @@
           </p>
           <input
             name="profileDetails"
+            placeholder="О себе"
             id="profileDetails-input"
             type="text"
             class="popup__input"
@@ -61,21 +61,21 @@
         </form>
         <button
           aria-label="Закрыть"
-          type="button"
+          type="reset"
           class="popup__close-button popup__close-button_profile"
         ></button>
       </div>
     </div>
-
+    <!-----------------------ПОПАП ДОБАВЛЕНИЯ КАРТОЧКИ--------------------------->
     <div id="addNewCardPopup" class="popup popup-add">
       <div class="popup__container">
-        <form name="new-card" id="addNewCard-form" class="popup__form" novalidate>
+        <form name="new-card" id="addNewCard-form" class="popup__form popup__form-add" novalidate>
           <h2 class="popup__title">Новое место</h2>
           <input
             name="item-name"
             id="newCardName-input"
             type="text"
-            class="popup__input"
+            class="popup__input popup__input_cardtitle"
             minlength="2"
             maxlength="30"
             required
@@ -88,7 +88,7 @@
             name="item-link"
             id="newCardLink-input"
             type="url"
-            class="popup__input"
+            class="popup__input popup__input_url_card"
             placeholder="Ссылка на картинку"
             required
           />
@@ -101,23 +101,43 @@
         </form>
         <button
           aria-label="Закрыть"
-          type="button"
+          type="reset"
           class="popup__close-button popup__close-button_addNewCard"
         ></button>
       </div>
     </div>
-
-    <template id="element-template" class="template">
-      <article class="element">
-        <img class="element__image" src="#" title="" alt="#" />
-        <button class="element__delete-button"></button>
-        <div class="element__place">
-          <h3 class="element__place-name"></h3>
-          <button type="button" class="element__like-button"></button>
-        </div>
-      </article>
-    </template>
-
+    <!-----------------------------ПОПАП РЕДАКТИРОВАНИЯ АВАТАРКИ------------------------->
+    <div class="popup popup_avatar">
+      <div class="popup__container">
+        <form name="avatarEdit" class="popup__form popup__avatar-edit">
+          <button aria-label="Закрыть" type="reset" class="popup__close-button"></button>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <input
+            id="popup__newAvatar"
+            name="inputAvatar"
+            type="url"
+            placeholder="URL"
+            class="popup__input popup__input_url_avatar"
+            required
+          />
+          <span id="avatar-link" class="popup__span popup__span_avatar-url-error"></span>
+          <button type="submit" id="submit-button" class="popup__submit-button" disabled>
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-----------------------ПОПАП ПОДТВЕРЖДЕНИЯ УДАЛЕНИЯ КАРТОЧКИ--------------------------->
+    <div class="popup popup_delete-card">
+      <div class="popup__container popup__container_confirm">
+        <form name="deleteCard" class="popup__form popup__form-delete-card">
+          <button aria-label="Закрыть" type="reset" class="popup__close-button"></button>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button type="submit" class="popup__submit-button">Да</button>
+        </form>
+      </div>
+    </div>
+    <!-----------------------ПОПАП ОТКРЫТИЯ ИЗОБРАЖЕНИЯ--------------------------->
     <div id="fullImagePopup" class="popup popup_overlay">
       <div class="popup__container popup__container_zoom">
         <button
@@ -129,5 +149,19 @@
         <figcaption class="popup__fullImageTitle"></figcaption>
       </div>
     </div>
+    <!-----------------------ШАБЛОН КАРТОЧКИ с подсчетом лайков--------------------------->
+    <template id="element-template" class="template">
+      <article class="element">
+        <img class="element__image" src="#" title="" alt="#" />
+        <button class="element__delete-button element__delete-button_active"></button>
+        <div class="element__place">
+          <h3 class="element__place-name"></h3>
+          <div class="element__like-attributes">
+            <button type="button" class="element__like-button"></button>
+            <p class="element__likes-counter">0</p>
+          </div>
+        </div>
+      </article>
+    </template>
   </body>
 </html>

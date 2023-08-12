@@ -1,7 +1,10 @@
 .element__place {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* display: grid;
   grid-template-columns: 2;
-  grid-template-rows: 1;
+  grid-template-rows: 2; */
   width: 246px;
   margin: 25px auto 31px;
 }

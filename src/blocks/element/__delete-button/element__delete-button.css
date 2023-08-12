@@ -12,8 +12,9 @@
   height: 19px;
   border: none;
   cursor: pointer;
+  display: none;
 }
-.element__trash-button:hover {
+.element__delete-button:hover {
   opacity: 0.6;
   transition: opacity 0.5s;
 }
