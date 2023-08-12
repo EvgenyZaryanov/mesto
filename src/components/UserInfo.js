@@ -16,12 +16,20 @@ export class UserInfo {
   }
 
   setUserInfo(name, about, id) {
-    this._profileName.textContent = name;
-    this._profileStatus.textContent = about;
-    this._profileId = id;
+    if (name !== undefined) {
+      this._profileName.textContent = name;
+    }
+    if (about !== undefined) {
+      this._profileStatus.textContent = about;
+    }
+    if (id !== undefined) {
+      this._profileId = id;
+    }
   }
 
   setUserAvatar(avatar) {
-    this._profileAvatar.style.backgroundImage = `url('${avatar}')`;
+    if (avatar !== undefined) {
+      this._profileAvatar.style.backgroundImage = `url('${avatar}')`;
+    }
   }
 }

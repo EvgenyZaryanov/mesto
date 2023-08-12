@@ -1,5 +1,7 @@
 import './index.css';
 
+//----запутался, не могу понять как изменить поля попапов на нейтральные при открытии попапа...
+
 import { Card } from '..//components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
@@ -187,20 +189,24 @@ const api = new Api({
   groupId: 'cohort-72'
 });
 
+let userId;
+
 api
   .getUserInfo()
   .then(resApi => {
-    userInfo.setUserInfo(resApi.name, resApi.about, resApi._id);
+    userId = resApi._id;
+    userInfo.setUserInfo(resApi.name, resApi.about, userId);
     userInfo.setUserAvatar(resApi.avatar);
   })
-  .catch(err => {
-    console.log(err);
-  });
-
-api
-  .getCards()
-  .then(res => {
-    cardList.renderItems(res);
+  .then(() => {
+    api
+      .getCards()
+      .then(res => {
+        cardList.renderItems(res, userId);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   })
   .catch(err => {
     console.log(err);
