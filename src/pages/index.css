@@ -47,6 +47,6 @@
 @import url(../blocks/element/__like-button/_active/element__like-button_active.css);
 @import url(../blocks/element/__delete-button/_active/element__delete-button_active.css);
 @import url(../blocks/popup/__container/_zoom/popup__container_zoom.css);
-@import url(../blocks/popup/__container/_confirm/popup__container_confirm.css);
-@import url(../blocks/popup/__form/_confirm/popup__form_confirm.css);
-@import url(../blocks/popup/__title/_confirm/popup__title_confirm.css);
+/* @import url(../blocks/popup/__container/_confirm/popup__container_confirm.css); */
+/* @import url(../blocks/popup/__form/_confirm/popup__form_confirm.css);
+@import url(../blocks/popup/__title/_confirm/popup__title_confirm.css); */
