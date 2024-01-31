@@ -6,3 +6,18 @@
   background: #ffffff;
   border-radius: 10px;
 }
+
+/* .element:hover {
+  box-shadow: 1px 1px #363333, 2px 2px #363333, 3px 3px #363333, 4px 4px #363333, 5px 5px #363333,
+    6px 6px #363333, 7px 7px #363333;
+  -webkit-transform: translateX(-7px);
+  transform: translateX(-7px);
+} */
+
+.element:hover {
+  border: 1px solid #03fb8b; /* Ширина, вид и цвет рамки */
+}
+
+/* .element:hover {
+  animation: border;
+} */

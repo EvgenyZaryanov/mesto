@@ -11,9 +11,25 @@
   width: 22px;
   height: 19px;
   border: none;
-  transition: opacity 0.5s;
-}
-.element__like-button:hover {
   opacity: 0.5;
   cursor: pointer;
+  /* transition: opacity 0.5s; */
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.element__like-button:hover {
+  animation: scale 1.4s ease infinite;
+  /* opacity: 0.5;
+  cursor: pointer; */
 }

@@ -1,7 +1,5 @@
 import './index.css';
 
-//----запутался, не могу понять как изменить поля попапов на нейтральные при открытии попапа...
-
 import { Card } from '..//components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
